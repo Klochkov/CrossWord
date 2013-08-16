@@ -6,7 +6,6 @@ public class ShipConvertor {
 	private int oX, oY;
 
 	public ShipConvertor() {
-
 	}
 
 	public int getoX() {
@@ -18,20 +17,25 @@ public class ShipConvertor {
 	}
 
 	public void setHorizontalShipsLocation(int[][] arr) {
+		int sizeX = arr[0].length;
+		int sizeY = arr.length;
+		horizontalShipsLocation = new int[sizeY][sizeX];
 		copyArr(arr, horizontalShipsLocation);
-		oX = arr.length;
+		oX = sizeY;
 	}
 
 	public void setVerticalShipsLocation(int[][] arr) {
+		int sizeX = arr[0].length;
+		int sizeY = arr.length;
+		verticalShipsLocation = new int[sizeY][sizeX];
 		copyArr(arr, verticalShipsLocation);
-		oY = arr.length;
+		oY = sizeY;
 	}
 
 	private void copyArr(int[][] arrFrom, int[][] arrTo) {
 		int i, j;
 		int sizeX = arrFrom[0].length;
 		int sizeY = arrFrom.length;
-		arrTo = new int[sizeY][sizeX];
 		for (i = 0; i < sizeY; i++)
 			for (j = 0; j < sizeX; j++) {
 				arrTo[i][j] = arrFrom[i][j];
@@ -47,7 +51,7 @@ public class ShipConvertor {
 					break;
 				pointer = +(element);
 				while (element > 0) {
-					arr[i][pointer + element--] = 1;
+					arr[i][pointer + --element] = 1;
 				}
 			}
 			pointer = 0;

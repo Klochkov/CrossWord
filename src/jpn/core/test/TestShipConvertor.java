@@ -1,10 +1,11 @@
 package jpn.core.test;
 
-import jpn.core.ShipConvertor;
+import jpn.core.convertor.ShipConvertor;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class TestShipConvertor extends TestCase {
+
 	ShipConvertor shipConvertor = new ShipConvertor();
 	int[][] arrByVertical = { { 2, 1, 0 }, { 1, 2, 0 }, { 0, 0, 0 },
 			{ 4, 0, 0 }, { 2, 3, 0 }, { 1, 2, 0 }, { 1, 2, 0 } };
@@ -20,9 +21,8 @@ public class TestShipConvertor extends TestCase {
 		Assert.assertEquals(7, shipConvertor.getoY());
 		Assert.assertEquals(6, shipConvertor.getoX());
 	}
-	public void testArrFrameFilling(){
-		shipConvertor.setHorizontalShipsLocation(arrByHorizontal);
-		shipConvertor.setVerticalShipsLocation(arrByVertical);
+
+	public void testArrFrameFilling() {
 		int arr[][] = new int[7][6];
 		shipConvertor.getShipArrFrameByVertical(arr);
 		Assert.assertEquals(1, arr[0][0]);
