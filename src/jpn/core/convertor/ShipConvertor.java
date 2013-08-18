@@ -43,18 +43,19 @@ public class ShipConvertor {
 	}
 
 	public int[][] getShipArrFrameByVertical(int[][] arr) {
-		int i, j, pointer, element;
+		int i, j, pointer=-1, element, count;
 		for (i = 0; i < oY; i++) {
 			for (j = 0; j < oX; j++) {
 				element = verticalShipsLocation[i][j];
 				if (element == 0)
 					break;
-				pointer = +(element);
-				while (element > 0) {
-					arr[i][pointer + --element] = 1;
+				count=element;
+				while(count>0){
+					arr[i][pointer+count--] = 1;
 				}
+				pointer=+element;
 			}
-			pointer = 0;
+			pointer = -1;
 		}
 		return arr;
 	}
