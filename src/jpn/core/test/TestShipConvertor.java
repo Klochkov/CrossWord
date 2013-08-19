@@ -22,20 +22,31 @@ public class TestShipConvertor extends TestCase {
 		Assert.assertEquals(6, shipConvertor.getoX());
 	}
 
-	public void testArrFrameFilling() {
+	public void testArrFrameFillingVertical() {
 		int arr[][] = new int[7][6];
 		int expectedArr[][] = { { 1, 1, 0, 1, 0, 0 }, { 1, 0, 1, 1, 0, 0 },
 				{ 0, 0, 0, 0, 0, 0 }, { 1, 1, 1, 1, 0, 0 }, { 1, 1, 0, 1, 1, 1 },
 				{ 1, 0, 1, 1, 0, 0 }, { 1, 0, 1, 1, 0, 0 } };
 		shipConvertor.getShipArrFrameByVertical(arr);
-		Assert.assertEquals(1, arr[0][0]);
-		Assert.assertEquals(1, arr[0][1]);
-		Assert.assertEquals(0, arr[0][2]);
-		Assert.assertEquals(1, arr[0][3]);
-		Assert.assertEquals(0, arr[0][4]);
-		Assert.assertEquals(0, arr[0][5]);
 		for (int i = 0; i < 7; i++)
 			for (int j = 0; j < 6; j++) {
+				Assert.assertEquals(expectedArr[i][j], arr[i][j]);
+			}
+	}
+	
+	public void testArrFrameFillingHorizontal() {
+		int arr[][] = new int[6][7];
+		int expectedArr[][] = { 
+				{1, 0, 1, 1, 1, 0, 0},
+				{1, 1, 0, 1, 1, 0, 0},
+				{1, 0, 1, 1, 0, 0, 0},
+				{1, 0, 1, 1, 1, 1, 0},
+				{1, 0, 1, 1, 0, 0, 0},
+				{1, 0, 1, 0, 0, 0, 0}
+		};
+		shipConvertor.getShipArrFrameByHorizontal(arr);
+		for (int i = 0; i < 6; i++)
+			for (int j = 0; j < 7; j++) {
 				Assert.assertEquals(expectedArr[i][j], arr[i][j]);
 			}
 	}

@@ -19,14 +19,24 @@ public class Test {
 
 		int arr[][] = new int[7][6];
 		shipConvertor.getShipArrFrameByVertical(arr);
+		outputArrToConsole(arr);
+	
+		int arr2[][] = new int[6][7];
+		shipConvertor.getShipArrFrameByHorizontal(arr2);
+		outputArrToConsole(arr2);
+	}
 
-		for (int k = 0; k < 7; k++) {
-			System.out.print("arr[" + k + "] {");
-			for (int i = 0; i < 6; i++) {
-				System.out.print(arr[k][i]+", ");
+	private static void outputArrToConsole(int[][] arr) {
+		int kSize = arr.length;
+		int iSize = arr[0].length;
+		for (int k = 0; k < kSize; k++) {
+			System.out.print("arr2[" + k + "] {");
+			for (int i = 0; i < iSize; i++) {
+				System.out.print(arr[k][i] + ", ");
 			}
 			System.out.println("}");
 		}
+		System.out.println("------------");
 	}
 
 }
